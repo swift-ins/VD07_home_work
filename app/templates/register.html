@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ 'Edit Profile' if edit else 'Register' }}</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <input type="text" name="name" placeholder="Name" class="form-control" required value="{{ user.name if edit else '' }}">
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="Email" class="form-control" required value="{{ user.email if edit else '' }}">
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" placeholder="{{ 'New Password (leave blank to keep)' if edit else 'Password' }}" class="form-control" {{ '' if edit else 'required' }}>
+        </div>
+        <button class="btn btn-primary" type="submit">{{ 'Update' if edit else 'Register' }}</button>
+    </form>
+</div>
+{% endblock %}

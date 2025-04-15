@@ -1,0 +1,4 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center mt-4">Welcome{% if current_user.is_authenticated %}, {{ current_user.name }}{% endif %}!</h1>
+{% endblock %}
